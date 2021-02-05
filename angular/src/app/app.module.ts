@@ -14,6 +14,10 @@ import { ServiceProxyModule } from '@shared/service-proxies/service-proxy.module
 import { SharedModule } from '@shared/shared.module';
 import { HomeComponent } from '@app/home/home.component';
 import { AboutComponent } from '@app/about/about.component';
+// Products
+import { ProductsComponent } from '@app/products/products.component';
+import { CreateProductDialogComponent } from './products/create-product/create-product-dialog.component';
+// import { EditTenantDialogComponent } from './tenants/edit-tenant/edit-tenant-dialog.component';
 // tenants
 import { TenantsComponent } from '@app/tenants/tenants.component';
 import { CreateTenantDialogComponent } from './tenants/create-tenant/create-tenant-dialog.component';
@@ -44,6 +48,8 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
     AppComponent,
     HomeComponent,
     AboutComponent,
+    ProductsComponent,
+    CreateProductDialogComponent,
     // tenants
     TenantsComponent,
     CreateTenantDialogComponent,
