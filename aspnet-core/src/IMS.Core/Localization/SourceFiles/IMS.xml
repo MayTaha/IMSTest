@@ -117,5 +117,8 @@
     <text name="ResetPasswordStepOneInfo">1. Enter your administrator password</text>
     <text name="ResetPasswordStepTwoInfo">2. Copy this random password so you can send it to the user</text>
     <text name="UsersActivation">Users activation</text>
+    <text name="Operator.Equals">=</text>
+    <text name="Operator.GreaterThan">&#62;</text>
+    <text name="Operator.LessThan">&#60;</text>
   </texts>
 </localizationDictionary>

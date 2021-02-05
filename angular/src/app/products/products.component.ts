@@ -12,19 +12,20 @@ import {
     ProductDtoPagedResultDto,
 } from '@shared/service-proxies/service-proxies';
 import { CreateProductDialogComponent } from './create-product/create-product-dialog.component';
+import * as moment from 'moment';
 // import { EditTenantDialogComponent } from './edit-tenant/edit-tenant-dialog.component';
 
 enum QuantityOperator {
-  equals = 1,
-  greaterThan = 2,
-  lessThan = 3
+  Equals = 1,
+  GreaterThan = 2,
+  LessThan = 3
 }
 class PagedProductsRequestDto extends PagedRequestDto {
     title: string;
     code: string;
-    Quantity?: number;
+    quantity?: number;
     quantityOperator: QuantityOperator;
-
+    creationTime: moment.Moment;
 }
 
 @Component({
@@ -37,9 +38,11 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
     products: ProductDto[] = [];
     title='';
     code='';
-    Quantity;
+    quantity;
     quantityOperator;
+    creationTime: Date;
     advancedFiltersVisible = false;
+    quantityOperators = QuantityOperator;
 
     constructor(
         injector: Injector,
@@ -56,16 +59,17 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
     ): void {
       request.title = this.title;
       request.code = this.code;
-      request.Quantity = this.Quantity;
+      request.quantity = this.quantity == null ? this.emptyNumber : this.quantity;
       request.quantityOperator = this.quantityOperator;
+      request.creationTime = this.creationTime ? moment(this.creationTime) : null;
 
         this._productService
             .getAll(
                 request.title,
                 request.code,
-                request.Quantity,
+                request.quantity,
                 request.quantityOperator as number,
-                null,
+                request.creationTime,
                 request.skipCount,
                 request.maxResultCount)
             .pipe(

@@ -25,6 +25,7 @@ export abstract class AppComponentBase {
     multiTenancy: AbpMultiTenancyService;
     appSession: AppSessionService;
     elementRef: ElementRef;
+    emptyNumber: number;
 
     constructor(injector: Injector) {
         this.localization = injector.get(LocalizationService);

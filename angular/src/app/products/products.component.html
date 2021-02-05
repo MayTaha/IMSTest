@@ -32,10 +32,39 @@
               type="text"
               class="form-control"
               name="title"
-              [placeholder]="'SearchWithThreeDot' | localize"
+              [placeholder]="'Title' | localize"
               [(ngModel)]="title"
               (keyup.enter)="getDataPage(1)"
             />
+            <input
+              type="text"
+              class="form-control"
+              name="code"
+              [placeholder]="'Code' | localize"
+              [(ngModel)]="code"
+              (keyup.enter)="getDataPage(1)"
+            />
+            <input
+              type="date"
+              class="form-control"
+              name="creationTime"
+              [placeholder]="'creationTime' | localize"
+              [(ngModel)]="creationTime"
+              (keyup.enter)="getDataPage(1)"
+            />
+            
+            <select class="form-control" id="quantityOperator" [(ngModel)]="quantityOperator" name="quantityOperator">
+              <option *ngFor="let item of quantityOperators | keys" [ngValue]="item.key">{{l("Operator." + item.value )}}</option>
+          </select>
+          <input
+            type="number"
+            class="form-control"
+            name="quantity"
+            [placeholder]="'quantity' | localize"
+            [(ngModel)]="quantity"
+            min="0"
+            (keyup.enter)="getDataPage(1)"
+          />
         
           </div>
          
