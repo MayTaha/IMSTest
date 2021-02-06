@@ -7,6 +7,7 @@ using Abp.EntityFrameworkCore.Uow;
 using Abp.MultiTenancy;
 using IMS.EntityFrameworkCore.Seed.Host;
 using IMS.EntityFrameworkCore.Seed.Tenants;
+using IMS.EntityFrameworkCore.Seed.Products;
 
 namespace IMS.EntityFrameworkCore.Seed
 {
@@ -24,9 +25,7 @@ namespace IMS.EntityFrameworkCore.Seed
             // Host seed
             new InitialHostDbBuilder(context).Create();
 
-            // Default tenant seed (in host database).
-            new DefaultTenantBuilder(context).Create();
-            new TenantRoleAndUserBuilder(context, 1).Create();
+            new DefaultProductsBuilder(context).Create();
         }
 
         private static void WithDbContext<TDbContext>(IIocResolver iocResolver, Action<TDbContext> contextAction)

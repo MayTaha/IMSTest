@@ -16,7 +16,7 @@ namespace IMS.Migrator
 
         public IMSMigratorModule(IMSEntityFrameworkModule abpProjectNameEntityFrameworkModule)
         {
-            abpProjectNameEntityFrameworkModule.SkipDbSeed = true;
+            abpProjectNameEntityFrameworkModule.SkipDbSeed = false;
 
             _appConfiguration = AppConfigurations.Get(
                 typeof(IMSMigratorModule).GetAssembly().GetDirectoryPathOrNull()
