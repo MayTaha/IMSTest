@@ -11,8 +11,9 @@ import {
     ProductDto,
     ProductDtoPagedResultDto,
 } from '@shared/service-proxies/service-proxies';
-import { CreateProductDialogComponent } from './create-product/create-product-dialog.component';
+import { CreateOrEditProductDialogComponent } from './create-product/create-or-edit-product-dialog.component';
 import * as moment from 'moment';
+import { empty } from 'rxjs';
 // import { EditTenantDialogComponent } from './edit-tenant/edit-tenant-dialog.component';
 
 enum QuantityOperator {
@@ -115,7 +116,7 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
     showCreateOrEditProductDialog(id?: number): void {
       let createOrEditDialog: BsModalRef;
       createOrEditDialog = this._modalService.show(
-        CreateProductDialogComponent,
+        CreateOrEditProductDialogComponent,
         {
           class: 'modal-lg',
         }
@@ -129,8 +130,10 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
     }
 
     clearFilters(): void {
-        // this.title = '';
-        // this.isActive = undefined;
+        this.title = ''
+        this.code = '';
+        this.creationTime = null;
+        this.quantity = this.emptyNumber;
         this.getDataPage(1);
     }
 }

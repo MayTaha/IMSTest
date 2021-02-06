@@ -16,7 +16,7 @@ import { HomeComponent } from '@app/home/home.component';
 import { AboutComponent } from '@app/about/about.component';
 // Products
 import { ProductsComponent } from '@app/products/products.component';
-import { CreateProductDialogComponent } from './products/create-product/create-product-dialog.component';
+import { CreateOrEditProductDialogComponent } from './products/create-product/create-or-edit-product-dialog.component';
 // import { EditTenantDialogComponent } from './tenants/edit-tenant/edit-tenant-dialog.component';
 // tenants
 import { TenantsComponent } from '@app/tenants/tenants.component';
@@ -49,7 +49,7 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
     HomeComponent,
     AboutComponent,
     ProductsComponent,
-    CreateProductDialogComponent,
+    CreateOrEditProductDialogComponent,
     // tenants
     TenantsComponent,
     CreateTenantDialogComponent,

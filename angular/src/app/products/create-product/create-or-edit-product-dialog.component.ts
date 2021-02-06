@@ -10,16 +10,14 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AppComponentBase } from '@shared/app-component-base';
 import {
   ProductDto,
-  ProductDtoPagedResultDto,
   ProductServiceProxy,
-  TenantServiceProxy
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
   selector: 'create-or-edit-product-dialog',
-  templateUrl: 'create-product-dialog.component.html'
+  templateUrl: 'create-or-edit-product-dialog.component.html'
 })
-export class CreateProductDialogComponent extends AppComponentBase
+export class CreateOrEditProductDialogComponent extends AppComponentBase
   implements OnInit {
   saving = false;
   product: ProductDto = new ProductDto();
@@ -50,15 +48,6 @@ export class CreateProductDialogComponent extends AppComponentBase
 
   ngOnInit(): void {
   }
-
-  // show(id?: number): void{
-  //   this._modalService.show(this);
-  //   if (id){
-  //     this._productService.get(id).subscribe((result: ProductDto) => {
-  //       this.product = result;
-  //     });
-  //   }
-  // }
 
   save(): void {
     this.saving = true;
