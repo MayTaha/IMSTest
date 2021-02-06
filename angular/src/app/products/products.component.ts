@@ -112,8 +112,12 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
       //this.createOrEditProductDialog.show(product.id);
       this.showCreateOrEditProductDialog(product.id);
     }
+    view(product: ProductDto): void {
+      //this.createOrEditProductDialog.show(product.id);
+      this.showCreateOrEditProductDialog(product.id,true);
+    }
 
-    showCreateOrEditProductDialog(id?: number): void {
+    showCreateOrEditProductDialog(id?: number,isView?:boolean): void {
       let createOrEditDialog: BsModalRef;
       createOrEditDialog = this._modalService.show(
         CreateOrEditProductDialogComponent,
@@ -123,7 +127,7 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
       );
 
       createOrEditDialog.content.id = id;
-
+      createOrEditDialog.content.isViewMode =isView;
       createOrEditDialog.content.onSave.subscribe(() => {
         this.refresh();
       });

@@ -20,7 +20,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace IMS.ProductCatalogue
 {
-    [AbpAuthorize()]
     public class ProductAppService : AsyncCrudAppService<Product, ProductDto, int, PagedProductResultRequestDto, ProductDto, ProductDto>, IProductAppService
     {
         public ProductAppService(

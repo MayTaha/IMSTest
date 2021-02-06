@@ -22,7 +22,7 @@ export class CreateOrEditProductDialogComponent extends AppComponentBase
   saving = false;
   product: ProductDto = new ProductDto();
   
-
+   isViewMode: boolean=false;
   private _id: number;
   get id(): number{
     return this._id;
@@ -42,10 +42,7 @@ export class CreateOrEditProductDialogComponent extends AppComponentBase
     injector: Injector,
     public _productService: ProductServiceProxy,
     public bsModalRef: BsModalRef
-  ) {
-    super(injector);
-  }
-
+  ) { super(injector);}
   ngOnInit(): void {
   }
 

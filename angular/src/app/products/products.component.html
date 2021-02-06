@@ -18,53 +18,61 @@
     <div class="container-fluid">
       <div class="card">
         <div class="card-header">
-          <div class="input-group">
+          <div class="input-group"style="padding-bottom:12px;">
             <div class="input-group-prepend">
-              <button
-                type="button"
-                class="btn bg-blue"
-                (click)="getDataPage(1)"
-              >
-                <i class="fas fa-search"></i>
-              </button>
+              <input
+                type="text"
+                class="form-control"
+                name="title"
+                [placeholder]="'Title' | localize"
+                [(ngModel)]="title"
+                (keyup.enter)="getDataPage(1)"
+              />
             </div>
-            <input
-              type="text"
-              class="form-control"
-              name="title"
-              [placeholder]="'Title' | localize"
-              [(ngModel)]="title"
-              (keyup.enter)="getDataPage(1)"
-            />
-            <input
-              type="text"
-              class="form-control"
-              name="code"
-              [placeholder]="'Code' | localize"
-              [(ngModel)]="code"
-              (keyup.enter)="getDataPage(1)"
-            />
-            <input
-              type="date"
-              class="form-control"
-              name="creationTime"
-              [placeholder]="'creationTime' | localize"
-              [(ngModel)]="creationTime"
-              (keyup.enter)="getDataPage(1)"
-            />
-            
-            <select class="form-control" id="quantityOperator" [(ngModel)]="quantityOperator" name="quantityOperator">
-              <option *ngFor="let item of quantityOperators | keys" [ngValue]="item.key">{{l("Operator." + item.value )}}</option>
-          </select>
-          <input
-            type="number"
-            class="form-control"
-            name="quantity"
-            [placeholder]="'quantity' | localize"
-            [(ngModel)]="quantity"
-            min="0"
-            (keyup.enter)="getDataPage(1)"
-          />
+          </div>
+        
+          <div class="input-group"style="padding-bottom:12px;">
+            <div class="input-group-prepend">
+              <input
+                type="text"
+                class="form-control"
+                name="code"
+                [placeholder]="'Code' | localize"
+                [(ngModel)]="code"
+                (keyup.enter)="getDataPage(1)"
+              />
+            </div>
+          </div>
+          <div class="input-group" style="padding-bottom:12px;">
+            <div class="input-group-prepend">
+              <input
+                type="date"
+                class="form-control"
+                name="creationTime"
+                [placeholder]="'creationTime' | localize"
+                [(ngModel)]="creationTime"
+                (keyup.enter)="getDataPage(1)"
+              />
+            </div>
+          </div>
+            <div class="input-group"style="padding-bottom:12px;">
+            <div class="input-group-prepend">
+              
+              <select class="form-control" id="quantityOperator" [(ngModel)]="quantityOperator" name="quantityOperator">
+                <option *ngFor="let item of quantityOperators | keys" [ngValue]="item.key">{{l("Operator." + item.value )}}</option>
+              </select>
+            </div>
+            <div class="input-group-prepend">
+              <input
+                type="number"
+                class="form-control"
+                name="quantity"
+                [placeholder]="'quantity' | localize"
+                [(ngModel)]="quantity"
+                min="0"
+                (keyup.enter)="getDataPage(1)"
+              />
+            </div>
         
           </div>
          
@@ -116,7 +124,15 @@
                 <td>
                   <button
                     type="button"
-                    class="btn btn-sm bg-secondary"
+                    class="btn btn-sm bg-blue mx-1"
+                    (click)="view(product)"
+                  >
+                    <i class="fas fa-pencil-alt"></i>
+                    {{ "View" | localize }}
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm bg-secondary mx-1"
                     (click)="edit(product)"
                   >
                     <i class="fas fa-pencil-alt"></i>
@@ -124,7 +140,7 @@
                   </button>
                   <button
                     type="button"
-                    class="btn btn-sm bg-danger mx-2"
+                    class="btn btn-sm bg-danger mx-1"
                     (click)="delete(product)"
                   >
                     <i class="fas fa-trash"></i>

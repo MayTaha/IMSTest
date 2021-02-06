@@ -5,7 +5,7 @@
   (ngSubmit)="save()"
 >
   <abp-modal-header
-    [title]="'Create Product' | localize"
+  
     (onCloseClick)="bsModalRef.hide()"
   ></abp-modal-header>
   <div class="modal-body">
@@ -14,7 +14,7 @@
         {{ "Title" | localize }}
       </label>
       <div class="col-md-9">
-        <input
+        <input [readonly]="isViewMode"
           type="text"
           class="form-control"
           name="title"
@@ -37,7 +37,7 @@
         {{ "Code" | localize }}
       </label>
       <div class="col-md-9">
-        <input
+        <input [readonly]="isViewMode"
           type="text"
           class="form-control"
           name="code"
@@ -59,7 +59,7 @@
         {{ "quantity" | localize }}
       </label>
       <div class="col-md-9">
-        <input
+        <input [readonly]="isViewMode"
           type="number"
           class="form-control"
           name="quantity"
@@ -71,9 +71,11 @@
     </div>
     
   </div>
+  <div *ngIf="!isViewMode">
   <abp-modal-footer
     [cancelDisabled]="saving"
     [saveDisabled]="!createForm.form.valid || saving"
     (onCancelClick)="bsModalRef.hide()"
   ></abp-modal-footer>
+</div>
 </form>
