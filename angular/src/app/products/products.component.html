@@ -43,21 +43,30 @@
               />
             </div>
           </div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span>Creation Date</span>
+            </div>
+          </div>
           <div class="input-group" style="padding-bottom:12px;">
             <div class="input-group-prepend">
               <input
                 type="date"
                 class="form-control"
                 name="creationTime"
-                [placeholder]="'creationTime' | localize"
+                [placeholder]="'Creation Date' | localize"
                 [(ngModel)]="creationTime"
                 (keyup.enter)="getDataPage(1)"
               />
             </div>
           </div>
-            <div class="input-group"style="padding-bottom:12px;">
+          <div class="input-group">
             <div class="input-group-prepend">
-              
+              <span>Quantity</span>
+            </div>
+          </div>
+            <div class="input-group" style="padding-bottom:12px;">
+            <div class="input-group-prepend">
               <select class="form-control" id="quantityOperator" [(ngModel)]="quantityOperator" name="quantityOperator">
                 <option *ngFor="let item of quantityOperators | keys" [ngValue]="item.key">{{l("Operator." + item.value )}}</option>
               </select>
@@ -67,7 +76,7 @@
                 type="number"
                 class="form-control"
                 name="quantity"
-                [placeholder]="'quantity' | localize"
+                [placeholder]="'Quantity' | localize"
                 [(ngModel)]="quantity"
                 min="0"
                 (keyup.enter)="getDataPage(1)"

@@ -37,12 +37,12 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
 
   //@ViewChild('createOrEditProductDialog') createOrEditProductDialog: CreateProductDialogComponent;
     products: ProductDto[] = [];
-    title='';
-    code='';
-    quantity;
-    quantityOperator;
+    title: string;
+    code: string;
+    quantity: number;
+    quantityOperator: QuantityOperator = QuantityOperator.Equals;
     creationTime: Date;
-    advancedFiltersVisible = false;
+    advancedFiltersVisible: boolean = false;
     quantityOperators = QuantityOperator;
 
     constructor(
